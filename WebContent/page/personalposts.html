@@ -1,0 +1,536 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title id="title">查看帖子</title>
+<script src="../js/main.js" type="text/javascript">
+</script>
+<script>
+
+</script>
+<link href="../css/css.css" rel="stylesheet">
+</head>
+
+<style>
+.cardBox {
+		width: 200px;
+		text-align: center;
+		margin-right: 20px;
+		padding: 15px;
+		margin:15px;
+		height:120px;
+		font-size:15px;
+		border-radius:8px;
+		
+	}
+
+	
+	
+.nav1 ul
+{
+	list-style:none;
+}
+	.Goodbutton {
+    	background-color: #FF7701;
+    	border: none;
+    	color: white;
+    	padding: 5px 5px;
+    	text-align: center;
+    	text-decoration: none;
+    	display: inline-block;
+    	font-size: 20px;
+    	margin: 5px 5px;
+    	cursor: pointer;
+    	border-radius:10px;
+    	-webkit-transition-duration: 0.4s; /* Safari */
+    	transition-duration: 0.4s;
+    	height:55px;
+    	width:120px;
+}
+
+.Goodbutton:hover {
+    	background-color: #66ccff;
+    	cursor: pointer;
+}
+	.button {
+    	background-color: #FF7701; /* Green */
+    	border: none;
+    	color: white;
+    	padding: 10px 15px;
+    	text-align: center;
+    	text-decoration: none;
+    	display: inline-block;
+    	font-size: 15px;
+    	margin: 10px 10px;
+    	cursor: pointer;
+    	border-radius:8px;
+    	-webkit-transition-duration: 0.4s; /* Safari */
+    	transition-duration: 0.4s;
+}
+	.button1
+	{
+		background-color: #FF7701; 
+	}
+
+	.button1:hover
+	{
+		border-radius:8px;
+		cursor: pointer;
+		background-color: #008CBA; 
+	}
+	.list li a:hover
+	{
+		color:#FF7701;
+		
+	}
+	.posts
+	{
+		overflow:auto;
+		border:0px solid red;
+		width:25%;
+		height:705px;
+		float:left;
+		border-radius:8px;
+		position:relative;
+		right:25px;
+	}
+	.posts::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 3px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+
+.posts::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 10px;
+		background-color: #F90;
+		background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    }
+.posts::-webkit-scrollbar-track {/*滚动条里面轨道*/
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        /*border-radius: 10px;*/
+        background: #EDEDED;
+    }
+    
+    .view::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 3px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.view::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 10px;
+		background-color: #F90;
+		background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    }
+}
+.view::-webkit-scrollbar-track {/*滚动条里面轨道*/
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        /*border-radius: 10px;*/
+        background: #EDEDED;
+    }
+	
+</style>
+<link rel="stylesheet" href="../css/modalbox.css">
+<body bgcolor="#F7F7F7">
+<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+<div class="Body">
+	<div class="Body_logo">
+    <a href="../index.html"><img src="../img/logo.png"></a>
+    </div>
+    <div class="Body_Serach">
+    	<div style="border:0px solid red;margin:32px auto;text-align:center;">
+    	<input type="text" style="height:25px;width:200px;font-family:bahnschrift;float:none;margin:1px;border-radius:10px;border-color:#FF7F00;">
+        <input type="button" name="serach" style="font-size:20px;font-family:bahnschrift;position:relative;top:2px;border-radius:10px;background-color:#FF7F00;box-shadow:2px 2px 2px #FF7F00;"  value="Search">
+        </div>
+    </div>
+    <div style="border:0px solid red;width:150px;height:100px;float:left;">
+    		<span style="font-size:12px;">荣誉奖项：<br>
+            <a href="https://www.mi.com" target="_blank">全网最热门网站</a><br>
+            <a href="https://www.rom.com" target="_blank">安卓开源联盟网站成员</a><br>
+            <a href="https://www.rom.com" target="_blank">B&A开发大奖第一名</a><br>
+            <br>
+            </span>
+    </div>
+     <div style="border:0px solid red;width:60px;height:100px;float:left;" id="controlpanel">
+    		
+    </div>
+    <div style="border:0px solid red;width:100%;height:42px;float:left;">
+      <div id="nav">
+    		<ul id="Loginfo">
+      			<li><a href="index.html" title="首页">首页</a></li>
+      			<li><a href="phonelist.html" title="机型列表">机型列表</a></li>
+      			<li><a href="usergroup.html" title="申请用户组">申请用户组</a></li>
+      			<li><a href="newslist.html" title="玩机心得">玩机心得</a></li>
+     	 		<li><a href="information.html" title="信息管家(原安全中心)">信息管家</a></li>
+      			<li><a href="port.html" title="反馈吐槽">反馈吐槽</a></li>
+      			<li style="float:right;"><a href="#" title="广告"><img alt="广告" src="../img/ad.gif" height="20"></a></li>
+      			<li style="float:right;"><a href="#" title="广告2"><img alt="广告2" src="../img/ad2.gif" height="20"></a></li>
+    		</ul>
+  	  </div>
+</div>
+<div style="border:0px solid red;position:fixed;right:1200px;top:300px;" class="nav1" id="left-nav">
+	<ul id="share">
+		
+	</ul>
+</div>
+
+<div style="border:0px solid red;width:74.5%;height:1080px;float:left;border-radius:8px;" id="show">
+	
+</div>
+<div style="border:0px solid red;width:25%;height:400px;float:left;border-radius:8px;box-shadow: 0 1px 3px rgba(0,0,0,.25);" id="author">
+	
+</div>
+<h3  style="float:left;position:relative;left:10px;">Ta还发表过以下文章</h3>
+<div class="posts" style="box-shadow: 0 1px 3px rgba(0,0,0,.25);position:relative;right:1px;">
+	  <ul style="list-style: none;position:relative;right:20px;" class="list" id="PersonPosts">
+	  		
+	  </ul>
+</div>
+
+<div style="border:0px solid red;width:1030px;height:10px;float:left;">
+</div>
+<div style="float:left;border:0px solid red;width:100%;position:relative;left:25px;">
+
+
+</div>
+<div style="border:0px solid red;width:1030px;height:20px;float:left;">
+
+</div>
+<div style="border:0px solid red;width:1030px;height:20px;float:left;">
+
+
+</div>  
+
+<div style="width:1030px;height:40px;border:0px solid red;float:left;">
+</div>
+<div style="border:0px solid red;width:1030px;height:122px;float:left;">
+<div style="font-size:13px;text-align:center;"><a href="#">关于本站</a>&nbsp;|&nbsp;<a href="#">服务协议</a>&nbsp;|&nbsp;<a href="#">隐私政策</a>&nbsp;|&nbsp;<a href="#">开放平台</a>&nbsp;|&nbsp;<a href="#">商务洽谈</a>&nbsp;|&nbsp;<a href="#">安卓开源许可证</a>&nbsp;|&nbsp;<a href="#">版权所有</a>&nbsp;<br>
+&copy;2019 AndroidPhoneBBS&nbsp;安卓手机刷机论坛&reg;<br>
+<a href="#">粤网文[2017]6138-1456号</a> <a href="#">新出网证（粤）字010号</a> <a href="#">网络视听许可证1904073号</a> 增值电信业务经营许可证：<a href="#">粤B2-20090059 </a><a href="#">B2-20090028</a><br>
+<br>
+<img src="../img/备案.png">
+&nbsp;<img src="../img/举报.png">
+&nbsp;<img src="../img/文明.png">
+&nbsp;<img src="../img/验证.png">
+&nbsp;<img src="../img/网监.png">
+</div>
+</div>
+<script src="../js/main.js" type="text/javascript"></script>
+</div>
+<div id="my-modal-box" class="modalbox">
+
+        <!-- 3. 模态框内容的跟节点，它通常是一个非透明的容器，用于展示具体内容 -->
+        <div class="modalbox-dialog" id="showcomment">
+
+            <!-- 4. 模态框的关闭按钮，通常用于关闭模态框 -->
+            <a href="#close" title="关闭" class="modalbox-close-btn">X</a>
+
+            <!-- 5. 你的自定义内容，纯文字、表单、提示信息等 -->
+            
+
+        </div>
+
+    </div>
+</body>
+
+
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:'../logins',
+		method:'post',
+		success:function(results){
+			//alert(results);
+			if(results == null){
+				$('#controlpanel').append(
+						'<span style="font-size:12.5px;text-align:center;"><a href="../page/Register.html">注册账户</a><br>'+
+			            '</span>'+
+			            '<span style="font-size:12.5px;text-align:center;"><a href="../page/Login.html">登录账户</a><br>'+
+			            '</span>'
+					);
+			}else{
+				$('#controlpanel').css("display","none");
+				$('#Loginfo').append(
+						'<li><a href="../page/information.html" id="act">'+results.u_account+'</a></li>'+
+						'<li><a href="../logout" >'+"退出"+'</a></li>'+
+						'<input id="aid" type="hidden" value="'+results.u_uid+'"/>'
+				)
+			}
+	}
+	
+});
+	
+	
+	
+	
+	
+	
+	
+	$.ajax({
+		url:'../view_postss',
+		method:'get',
+		success:function(result){
+			$('#show').append(
+					'<div  style="border:0px solid red;width:98%;height:50px;float:left;border-radius:8px;font-size:30px;text-align:center;box-shadow: 0 1px 3px rgba(0,0,0,.25);">'+
+					result.p_theme+
+					'</div>'+
+					'<div  style="padding:20px;margin-top:15px;border:0px solid red;width:93.3%;height:730px;float:left;border-radius:8px;overflow-y:auto; overflow-x:auto;box-shadow: 0 1px 3px rgba(0,0,0,.25);" class="view">'+
+					result.p_text+
+					'</div>'	
+			)
+			
+			var id = result.p_id;
+			
+			
+	
+	$.ajax({
+		url:'../count_comment?pid='+result.p_id,
+		method:'get',
+		success:function(result){
+			$('#show').append(
+					'<span style="margin-top:20px;float:left;">'+
+					'<h4><a href="#">最新评论<b>('+result+')</b></a></h4>'+
+					'</span>'+
+					'<div style="border-radius:8px;margin-top:20px;box-shadow: 0 1px 3px rgba(0,0,0,.25);border:0px solid red;width:97.5%;height:230px;float:left;overflow:auto;">'+
+					'<div style="margin:20px;" id="com">'+
+					
+					'</div>'+
+				'</div>'		
+			)
+			$.ajax({
+				url:'../list_comment?pid='+id,
+			    method:'get',
+			    success:function(result){
+					$.each(result,function(index,obj){
+						var index = index + 1;
+						$('#com').append(
+							'<div id="ll">'+
+					 			'<span><b>'+index+'楼</b></span>'+
+					 			'<span id="nick" style="margin-left:10px;font-size:12px;"><b>'+obj.c_caccount+'</b></span>'+
+					 			'<span style="position:relative;left:520px;font-size:12px;"><a href="javascript:void(0)" title="'+obj.c_caccount+'" class="report">举报该评论</a></span><br/>'+
+			         			'<span style="font-size:10px;">发表日期：'+obj.c_ctime+'</span>'+
+			         			'<p>'+obj.c_text+'</p>'+
+			         		'</div>'
+						)
+						
+					})
+					//var a = obj.c_caccount;
+					
+					//var a = obj.c_caccount;
+					
+					$(".report").on('click',function(){
+						if($("#aid").val() == null){
+							alert("你还未登录哦，先去登录吧！");
+							$(".report").attr('href','javascript:void(0)');
+							window.location.href = "../page/Login.html";
+						}else{ 
+							var account = $("#act").html();
+							if(account != ""){
+								$.ajax({
+									url:'../report_comment',
+									data:{
+							             "account" : account, 
+							        },
+									method:'get',
+									success:function(result){
+										alert(result);
+									}
+								})
+							}
+						}
+					})
+					
+			    }
+			})
+			
+			
+			
+		}
+	})
+	$.ajax({
+		url:'../good_count?pid='+result.p_id,
+		method:'get',
+		success:function(result){
+			$('#share').append(
+					'<li><a href="#" id="forgood"><button class="Goodbutton"><img src="../img/good (2).png">('+result+')</button></a></li>'+
+					'<li><a href="#my-modal-box" id="view_comment"><button class="Goodbutton" ><img src="../img/comment (3).png"></button></li>'
+			)
+			
+			$('#forgood').on('click',function(){
+				//alert($('#act').html());
+				if($('#act').html() == null)
+				{
+					alert("你还未登录哦，先去登录吧！");
+					window.location = "Login.html";
+				}else{
+	 				$.ajax({
+					url:'../forgood?pid='+id,
+					method:'get',
+					success:function(result){
+						alert(result);
+						window.location.reload();
+					}
+				})
+				}
+
+			})
+			
+			$('#view_comment').on('click',function(){
+					$('#showcomment').append(
+						'<h4>发表评论</h4>'+
+						'<textarea id="textarea_comment" name="textarea_comment" style="resize:none;width:99%;height:150px;border-radius:8px;"></textarea><br>'+
+						'<button id="sub" class="button button1">提交</button>'	
+					)
+					$('#sub').on('click',function(){
+						if($('#act').html() == null)
+						{
+							alert("你还未登录哦，先去登录吧！");
+							window.location = "Login.html";
+						}else{
+							//alert($('#textarea_comment').val());
+							$.ajax({
+								url:'../add_comment?uaccount='+$('#act').html()+'&pid='+id+'&comment='+$('#textarea_comment').val(),
+								method:'get',
+								success:function(result){
+									alert(result);
+								}
+							})
+						}
+					})
+			})
+			
+			
+			
+		}
+	
+	})
+	$.ajax({
+		url:'../get_user?pid='+result.p_id,
+		method:'get',
+		success:function(result){
+			var sex = result.u_sex == "男" ? 'man':'woman';
+			$('#author').append(
+					'<p><b>&nbsp;&nbsp;&nbsp;作者介绍</b></p>'+
+					'<img src="../img/'+result.u_pic+'" style="margin:0px auto 10px 70px;" width="119" height="100">'+
+					'<img src="../img/'+sex+'.png" style="border:0px solid red;position:relative;right:70px;top:15px;" width="20" height="20">'+
+				'<div style="border:0px solid blue;width:100%;height:188px;border-radius:8px;float:left;">'+
+					'<div class="cardBox">'+
+						'<div class="headerBox"  id="foot">'+
+						'昵称：<a title="查看作者信息" href="">'+result.u_nick+'</a><br>'+
+						'<span>注册日期：'+result.u_regtime+'</span><br/>'+
+						'<br/>'+
+						'</div>'+
+						'</div>'+
+				    '</div>'
+			)
+			
+			$.ajax({
+				url:'../listpostsbyuid?uid='+result.u_uid,
+				method:'get',
+				success:function(result){
+					$.each(result,function(index,obj){
+							$('#PersonPosts').append(
+									'<li><img src="../img/arrow2.gif">&nbsp;<a  target="_blank" href="../view_posts?pid='+obj.p_id+'&account='+obj.p_account+'">'+obj.p_theme+'</a></li>'+
+									'<br>'
+								)
+					})
+			}
+			
+			})
+			
+			
+			
+			var account = result.u_sex;
+			
+			$.ajax({
+				url:'../count_posts?uid='+result.u_uid,
+				method:'get',
+				success:function(result){
+				$('#foot').append(
+					'<span>帖子数：'+result+'</span><br/>'		
+				)
+			}
+		})
+		var act = $('#act').html();
+		var uid = result.u_uid;
+		var aid = $('#aid').val();
+		$.ajax({
+			url:'../count_fans?uid='+result.u_uid,
+			method:'get',
+			success:function(result){
+				$('#foot').append(
+						'<span>粉丝数：'+result+'</span><br/>'+
+						'<div style="border:0px solid red;height:53px;" id="foot-btn">'+
+						'<button class="button button1" id="focus">+ 关	注</button>'+
+						'<button class="button button1" id="Anty">× 举	报</button>'+
+						'</div>'
+					)
+					
+					$('#Anty').on('click',function(){
+						if($('#act').html() == null)
+						{
+							alert("你还未登录哦，先去登录吧！");
+							window.location = "Login.html";
+						}else{
+							$.ajax({
+								url:'../report_author?uid='+account+'&aid='+act,
+								method:'get',
+								success:function(result){
+									alert(result);
+								}
+							})
+						}
+					})
+					
+					$('#focus').on('click',function(){
+						if($('#act').html() == null)
+						{
+							alert("你还未登录哦，先去登录吧！");
+							window.location = "Login.html";
+						}else{
+							//alert(uid);
+						$.ajax({
+							url:'../checkfocused?uid='+uid+'&aid='+aid,
+							method:'get',
+							success:function(result){
+								//alert(result);
+								if(result == "Good"){
+									$.ajax({
+										url:'../forfocus?uid='+uid+'&cid='+aid,
+										method:'get',
+										success:function(result){
+											alert(result);
+										}
+									})
+								}else{
+									alert(result);
+								}
+							}
+						})
+						}
+
+					})
+			}
+		
+		
+		
+		})
+		
+		
+		
+		
+		
+		
+		
+		}
+	
+	})
+	
+	$('#share').append(
+			'<li onclick="alert(3444)"><button class="Goodbutton" ><img src="../img/qq (1).png"></button></li>'+
+			'<li onclick="alert(3444)"><button class="Goodbutton" ><img src="../img/sina.png"></button></li>'
+			
+	)
+		}
+	})
+	})
+</script>
+
+</html>

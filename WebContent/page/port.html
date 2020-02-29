@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TPHONE手机论坛-反馈吐槽</title>
+<script src="../js/main.js" type="text/javascript"></script>
+</head>
+<link href="../css/css.css" rel="stylesheet">
+<link rel="stylesheet" href= "../css/pagination.css">
+<style>
+.cardBox {
+		width: 206px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		text-align: center;
+		float: left;
+		padding: 12px;
+		margin:15px;
+		height:200px;
+		font-size:10px;
+		border-radius:8px;
+	}
+
+	.headerBox {
+		color: #fff;
+		padding: 5px;
+		font-size: 12px;
+		height: 60px;
+		border-radius:8px;
+	}
+
+	.bodyBox {
+		padding: 3px;
+	}
+
+	.bodyBox p {
+		margin-left: 5px;
+	}
+	
+	.f1 select
+	{
+		margin:20px auto;
+	}
+	
+	.t1
+	{
+		font-size:15px;
+		margin:20px auto;
+	}
+	
+</style>
+<body bgcolor="#F7F7F7">
+<script src="../js/jquery-2.1.4.min.js" type="text/javascript">
+</script>
+<div class="Body">
+	<div class="Body_logo">
+    <a href="../index.html"><img src="../img/logo.png"></a>
+    </div>
+    <div class="Body_Serach">
+    	<div style="border:0px solid red;margin:32px auto;text-align:center;">
+    	<input type="text" style="height:25px;width:200px;font-family:bahnschrift;float:none;margin:1px;border-radius:10px;border-color:#FF7F00;">
+        <input type="button" name="serach" style="font-size:20px;font-family:bahnschrift;position:relative;top:2px;border-radius:10px;background-color:#FF7F00;box-shadow:2px 2px 2px #FF7F00;"  value="Search">
+        </div>
+    </div>
+    <div style="border:0px solid red;width:150px;height:100px;float:left;">
+    		<span style="font-size:12px;">荣誉奖项：<br>
+            <a href="https://www.mi.com" target="_blank">全网最热门网站</a><br>
+            <a href="https://www.rom.com" target="_blank">安卓开源联盟网站成员</a><br>
+            <a href="https://www.rom.com" target="_blank">B&A开发大奖第一名</a><br>
+            <br>
+            </span>
+    </div>
+     <div style="border:0px solid red;width:60px;height:100px;float:left;" id="controlpanel">
+    		
+    </div>
+    <div style="border:0px solid red;width:100%;height:42px;float:left;">
+      <div id="nav">
+    		<ul id="Loginfo">
+      			<li><a href="index.html" title="首页">首页</a></li>
+      			<li><a href="phonelist.html" title="机型列表">机型列表</a></li>
+      			<li><a href="usergroup.html" title="申请用户组">申请用户组</a></li>
+      			<li><a href="newslist.html" title="玩机心得">玩机心得</a></li>
+     	 		<li><a href="information.html" title="信息管家(原安全中心)">信息管家</a></li>
+      			<li><a href="port.html" title="反馈吐槽">反馈吐槽</a></li>
+      			<li style="float:right;"><a href="#" title="广告"><img alt="广告" src="../img/ad.gif" height="20"></a></li>
+      			<li style="float:right;"><a href="#" title="广告2"><img alt="广告2" src="../img/ad2.gif" height="20"></a></li>
+    		</ul>
+  	  </div>
+</div>
+
+<div style="border:0px solid red;width:1030px;height:10px;float:left;">
+</div>
+<div style="border:0px solid red;width:100%;height:330px;float:left;border-radius:8px;">
+		<img alt="反馈中心" src="../img/feedback.png" width="1040" height="330">
+</div>
+<div style="float:left;border:0px solid red;width:100%;" id="listport">
+
+</div>
+<div style="border:0px solid red;width:1030px;height:20px;float:left;">
+<div class="row">
+		<div class="col-md-12">
+			<!-- 分页控件 -->
+			<div id="page" align="center"></div>
+		</div>
+</div>
+</div>
+<div style="border:0px solid red;width:1030px;height:20px;float:left;">
+
+</div>
+<div style="border:0px solid red;width:100%;height:600px;float:left;border-radius:8px;">
+	<h3>反馈信息</h3>
+		<div style="border:0px solid red;width:100%;height:500px;margin:20px auto;border-radius:8px;font-size:15px;">
+		<br>
+		<br>
+		<p align="center">反馈类型：
+				<select style="border-radius:8px;border:1px solid #FF7701;width:180px;height:30px;">
+						<option>----请 选 择 反 馈 类 型----</option>
+						<option>网站建议</option>
+						<option>用户投诉</option>
+						<option>内容投诉</option>
+				</select>
+			</p>
+		<br>
+		<p align="center">
+		内容标题：
+			<input type="text" name="title" style="border-radius:8px;border:1px solid #FF7701;width:180px;height:30px;" placeholder="请输入标题">
+		</p>
+			<br>
+		<p align="center">
+		<span style="position:relative;bottom:110px;">内容正文：</span>
+		<textarea style="resize:none;border-radius:8px;border:1px solid #FF7701;width:180px;height:130px;" placeholder="请输入内容"></textarea>
+		
+		</p>
+			<br>
+		<p align="center">
+		<input type="button" value="提交"  style="border-radius:8px;border:1px solid #FF7701;width:180px;height:30px;background-color:white;">
+		</p>
+	</div>
+</div>  
+<div style="border:0px solid red;width:1030px;height:20px;float:left;">
+
+</div>  
+
+<div style="width:1030px;height:23px;border:0px solid red;float:left;">
+</div>
+<div style="border:0px solid red;width:1030px;height:122px;float:left;">
+<div style="font-size:13px;text-align:center;"><a href="#">关于本站</a>&nbsp;|&nbsp;<a href="#">服务协议</a>&nbsp;|&nbsp;<a href="#">隐私政策</a>&nbsp;|&nbsp;<a href="#">开放平台</a>&nbsp;|&nbsp;<a href="#">商务洽谈</a>&nbsp;|&nbsp;<a href="#">安卓开源许可证</a>&nbsp;|&nbsp;<a href="#">版权所有</a>&nbsp;<br>
+&copy;2019 AndroidPhoneBBS&nbsp;安卓手机刷机论坛&reg;<br>
+<a href="#">粤网文[2017]6138-1456号</a> <a href="#">新出网证（粤）字010号</a> <a href="#">网络视听许可证1904073号</a> 增值电信业务经营许可证：<a href="#">粤B2-20090059 </a><a href="#">B2-20090028</a><br>
+<br>
+<img src="../img/备案.png">
+&nbsp;<img src="../img/举报.png">
+&nbsp;<img src="../img/文明.png">
+&nbsp;<img src="../img/验证.png">
+&nbsp;<img src="../img/网监.png">
+</div>
+</div>
+<script src="../js/main.js" type="text/javascript"></script>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery.pagination.js"></script>
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:'../logins',
+		method:'post',
+		success:function(results){
+			//alert(results);
+			if(results == null){
+				$('#controlpanel').append(
+						'<span style="font-size:12.5px;text-align:center;"><a href="../page/Register.html">注册账户</a><br>'+
+			            '</span>'+
+			            '<span style="font-size:12.5px;text-align:center;"><a href="../page/Login.html">登录账户</a><br>'+
+			            '</span>'
+					);
+			}else{
+				$('#controlpanel').css("display","none");
+				$('#Loginfo').append(
+						'<li><a href="../page/information.html" >'+results.u_account+'</a></li>'+
+						'<li><a href="../logout" >'+"退出"+'</a></li>'
+				)
+			}
+	}
+});
+	
+	$.ajax({
+		url:'../listport?pageNum=1&pageSize=6',
+		method:'get',
+		success:function(result){
+			listPosts(result);
+			page(result);
+		}
+	})
+
+//分页
+function page(result){
+$('#page').pagination(result.total, {
+	//第一个参数指定共多少条记录
+	       items_per_page : result.pageSize, // 每页显示多少条记录
+	       next_text : '>', //下一页按钮图标
+	       prev_text : '<', //上一页按钮图标
+	       num_display_entries : 5,//主体页数
+	       num_edge_entries : 2, //边缘页数
+	       callback : function(pageNum){//定义一个回调函数，用于每次点击页码发起分页查询请求
+	    	   		pageNum = ++pageNum;
+	    	   		$.ajax({
+	 					url: '../listport?pageNum='+pageNum+'&pageSize='+result.pageSize,
+	 					method: 'get',
+	 					success: function(results){
+	 						listPosts(results);
+	 					}
+	 				});
+	       }	   
+	});
+}
+
+function listPosts(result){
+	$('#listport').empty();
+	$.each(result.list,function(index,obj){
+		var stats = obj.p_success == 0 ? '待处理' : '已处理';
+		$('#listport').append(
+				'<div class="cardBox">'+
+				'<div class="headerBox" style="background-color:#FF7701;">'+
+				'<p>'+					
+				'<span style="color:white" href="#">'+obj.p_title+'</span><br>'+
+				'<div style="width:100%;height:1px;float:left;"></div>'+
+				'<span>'+'反馈进度：'+stats+'</span>'+
+				'</p>'+
+				'</div>'+
+				'<div style="width:100%;height:1px;float:left;"></div>'+
+				'<div class="bodyBox">'+
+				'<br/>'+
+				'<p>帖子ID：'+obj.p_no+'</p>'+
+				'<p>反馈类型：'+'<a href="#">'+obj.p_type+'</a>'+'</p>'+
+				'<p>反馈日期：'+'<a href="#">'+obj.p_time+'</a>'+'</p>'+
+				'</div>'+
+				'</div>'
+				);
+	});
+}
+	
+	
+});
+</script>
+</html>
